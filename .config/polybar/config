@@ -60,6 +60,7 @@ label = " %date% %time%"
 [module/weather]
 type = custom/script
 exec = ~/.scripts/weather
+interval = 600
 
 [module/pulseaudio-control]
 type = custom/script
