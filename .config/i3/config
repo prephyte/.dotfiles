@@ -207,6 +207,7 @@ for_window [class=".*"] title_format " <small>%title</small>"
 
 # Basic keybinds
 bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+period exec --no-startup-id rofi -show emoji
 bindsym $mod+0 exec --no-startup-id ~/.scripts/screen
 bindsym $mod+m exec --no-startup-id polybar-msg cmd toggle
 bindsym $mod+p exec --no-startup-id ~/.scripts/output

@@ -1,0 +1,10 @@
+configuration {
+    font: "URWGothic Book 10";
+    display-run: ":: ";
+    display-drun: ":: ";
+    display-window: ":: ";
+    drun-display-format: "{name}";
+    modi: "window,run,drun,emoji";
+    show-icons: false;
+}
+@theme "minimal"
