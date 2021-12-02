@@ -1,0 +1,53 @@
+#!/bin/bash
+
+export SUDO_ASKPASS=/usr/bin/xaskpass
+
+case "$1" in
+    "f") 
+        glxgears -geometry 1x1+1+1 &> /dev/null & (sleep 0.05; pkill glxgears &> /dev/null)
+        echo "Your screen is fixed"
+    ;; 
+    "r")
+        if systemctl --user status nicehash | head -4 | grep running > /dev/null; then
+            echo "Already running"
+            exit
+        fi
+        sudo /opt/t-rex/mining-clocks.sh > /dev/null && 
+        systemctl start --user nicehash.service && 
+        echo "Running"
+    ;; 
+    "s")
+        if systemctl --user status nicehash | head -4 | grep dead > /dev/null; then
+            echo "Already stopped"
+            exit
+        fi
+        sudo /opt/t-rex/working-clocks.sh > /dev/null && 
+        systemctl --user stop nicehash.service &> /dev/null &&
+        echo "Stopped"
+    ;;
+    "rg")
+        if systemctl --user status nicehash | head -4 | grep running > /dev/null; then
+            echo "Already running"
+            exit
+        fi
+        sudo -p 'Enter your password' -A /opt/t-rex/mining-clocks.sh > /dev/null && 
+        systemctl start --user nicehash.service && 
+        echo "Running"
+    ;; 
+    "sg")
+        if systemctl --user status nicehash | head -4 | grep dead > /dev/null; then
+            echo "Already stopped"
+            exit
+        fi
+        sudo -p 'Enter your password' -A /opt/t-rex/working-clocks.sh > /dev/null && 
+        systemctl --user stop nicehash.service &> /dev/null &&
+        echo "Stopped"
+    ;;
+    "*") 
+        echo "Unknown command!"
+        echo "Usage: mining (f)ix / (r)un / (s)top"
+    ;; 
+    "") 
+        systemctl --user status nicehash.service
+    ;;
+esac

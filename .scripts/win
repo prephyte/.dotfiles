@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo -p 'Enter your password' -A virsh start win10-gpu
