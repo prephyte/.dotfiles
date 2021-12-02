@@ -5,6 +5,9 @@ declare -i timeout=30
 revert() {
     xset dpms 0 0 0
     xset -dpms
+    pacmd update-sink-proplist alsa_output.pci-0000_06_00.1.hdmi-stereo device.description="TV"
+    pacmd update-sink-proplist alsa_output.pci-0000_06_00.1.hdmi-stereo-extra1 device.description="Monitor"
+    i3-msg restart
 }
 
 fast_sleep() {

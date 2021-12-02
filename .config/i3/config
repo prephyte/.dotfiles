@@ -219,6 +219,9 @@ bindsym $mod+w exec --no-startup-id chromium
 bindsym $mod+s exec --no-startup-id discord
 bindsym $mod+t exec --no-startup-id telegram-desktop
 
+bindsym $mod+o exec --no-startup-id dunstctl close
+bindsym $mod+i exec --no-startup-id dunstctl context
+bindsym $mod+Ctrl+i exec --no-startup-id dunstctl history-pop
 
 # Autostart apps
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 

@@ -13,7 +13,6 @@ update_dpi() {
 if nvidia-settings -q CurrentMetaMode | grep DPY-3 > /dev/null; then
     nvidia-settings --assign CurrentMetaMode="HDMI-0: 3840x2160_60+0+0 {ForceFullCompositionPipeline=On}" > /dev/null
     sed -i -E 's/height = .*?/height = 50/g' ~/.config/polybar/config
-    sed -i -E 's/tray-maxsize = .*?/tray-maxsize = 40/g' ~/.config/polybar/config
     sed -i -E 's/font: .*?/font: "URWGothicBook 14";/g' ~/.config/rofi/config.rasi
     update_dpi 192 32
 
@@ -21,10 +20,10 @@ if nvidia-settings -q CurrentMetaMode | grep DPY-3 > /dev/null; then
     nitrogen --restore
     pactl set-default-sink alsa_output.pci-0000_06_00.1.hdmi-stereo
     pacmd update-sink-proplist alsa_output.pci-0000_06_00.1.hdmi-stereo device.description="TV"
+    systemctl --user restart dunst
 else
     nvidia-settings --assign CurrentMetaMode="DP-2: 2560x1440_120 +0+0 {ForceFullCompositionPipeline=On}" > /dev/null
     sed -i -E 's/height = .*?/height = 30/g' ~/.config/polybar/config
-    sed -i -E 's/tray-maxsize = .*?/tray-maxsize = 20/g' ~/.config/polybar/config
     sed -i -E 's/font: .*?/font: "URWGothic Book 10";/g' ~/.config/rofi/config.rasi
     update_dpi 108 16
 
@@ -33,4 +32,5 @@ else
     pactl set-default-sink alsa_output.usb-Burr-Brown_from_TI_USB_Audio_CODEC-00.analog-stereo-output
     pacmd update-sink-proplist alsa_output.pci-0000_06_00.1.hdmi-stereo-extra1 device.description="Monitor"
     pacmd update-sink-proplist alsa_output.usb-Burr-Brown_from_TI_USB_Audio_CODEC-00.analog-stereo-output device.description="Headphones"
+    systemctl --user restart dunst
 fi
