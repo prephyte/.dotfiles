@@ -2,19 +2,10 @@
 set $mod Mod4
 floating_modifier Mod1
 font xft:URWGothic-Book 11
+focus_on_window_activation focus
 
 
-# Colors
-set $fg-color       #fdfff1
-set $bg-color       #272821
-set $contrast-color #3b3c35
-set $red-color      #f82570
-set $green-color    #a6e12d
-set $yellow-color   #e4db73
-set $orange-color   #fc961f
-set $purple-color   #ae81ff
-
-# class                 border  bground text    indicator child_border
+# Colors                border  bground text    indicator child_border
 client.focused          #343638 #343638 #c5c8c6 #343638   #343638
 client.focused_inactive #1d1f21 #1d1f21 #c5c8c6 #1d1f21   #1d1f21
 client.unfocused        #1d1f21 #1d1f21 #c5c8c6 #1d1f21   #1d1f21
@@ -61,9 +52,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Ctrl+f floating toggle
 
-# bindsym layout stacking
-# bindsym layout tabbed
-# bindsym layout toggle split
+# bindsym $ layout stacking
+# bindsym $ layout tabbed
+# bindsym $ layout toggle split
 
 
 # Workspaces
@@ -111,10 +102,15 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 # Resize mode
 bindsym $mod+r mode "resize"
 mode "resize" {
-    bindsym h resize shrink width 5 px or 5 ppt
-    bindsym j resize grow height 5 px or 5 ppt
-    bindsym k resize shrink height 5 px or 5 ppt
-    bindsym l resize grow width 5 px or 5 ppt
+    bindsym h resize shrink width 25 px or 5 ppt
+    bindsym j resize grow height 25 px or 5 ppt
+    bindsym k resize shrink height 25 px or 5 ppt
+    bindsym l resize grow width 25 px or 5 ppt
+
+    bindsym Shift+h resize shrink width 5 px or 1 ppt
+    bindsym Shift+j resize grow height 5 px or 1 ppt
+    bindsym Shift+k resize shrink height 5 px or 1 ppt
+    bindsym Shift+l resize grow width 5 px or 1 ppt
 
     bindsym Left resize shrink width 10 px or 10 ppt
     bindsym Down resize grow height 10 px or 10 ppt
@@ -236,3 +232,5 @@ exec --no-startup-id xset dpms 0 0 0
 exec --no-startup-id xset -dpms
 exec_always --no-startup-id ~/.config/polybar/launch.sh 
 exec_always --no-startup-id xsettingsd
+
+# vim: ft=config
