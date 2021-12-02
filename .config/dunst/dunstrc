@@ -403,6 +403,10 @@
     appname = "Spotify"
     format = ""
 
+[history-ignore]
+    appname = "no-history"
+    history_ignore = yes
+
 #[history-ignore]
 #    # This notification will not be saved in history
 #    summary = "foobar"

@@ -1,0 +1,58 @@
+#!/bin/bash
+export image="/tmp/i3lock.jpg"
+
+get_color_avg() {
+    echo $(convert "$image" -gravity center -crop 100x100+0+0 +repage -colorspace hsb -resize 1x1 txt:- | 
+    awk -F '[%$]' 'NR==2{gsub(",",""); printf "%.0f\n", $(NF-1)}')
+}
+
+scrot "$image" -z -o
+convert "$image" -scale 20% -blur 0x2.5 -resize 500% -level "0%,100%,0.9" -filter Gaussian -resize 20% -define "filter:sigma=1.5" -resize 500.5% "$image"
+
+params=(
+    "-k" \
+    "--no-modkey-text" \
+    # "--no-verify"
+)
+
+if [[ $(get_color_avg) -gt 0 ]]; then
+    icon="/usr/share/i3lock-fancy/icons/circlelockcleardark.png"
+    colors=(
+        "--inside-color=0000001c" \
+        "--ring-color=0000003e" \
+        "--line-color=00000000" \
+        "--keyhl-color=ffffff80" \
+        "--ringver-color=00000000" \
+        "--separator-color=22222260" \
+        "--insidever-color=ffffff1c" \
+        "--ringwrong-color=ffffff55" \
+        "--insidewrong-color=ffffff1c" \
+        "--verif-color=ffffff00" \
+        "--wrong-color=ff000000" \
+        "--time-color=ffffffbf" \
+        "--date-color=ffffffbf" \
+        "--layout-color=ffffffff"
+    )
+
+else
+    icon="/usr/share/i3lock-fancy/icons/circlelockclear.png"
+    colors=(
+        "--inside-color=ffffff1c" \
+        "--ring-color=ffffff3e" \
+        "--line-color=ffffff00" \
+        "--keyhl-color=00000080" \
+        "--ringver-color=00000000" \
+        "--separator-color=22222260" \
+        "--insidever-color=0000001c" \
+        "--ringwrong-color=00000055" \
+        "--insidewrong-color=0000001c" \
+        "--verif-color=00000000" \
+        "--wrong-color=ff000000" \
+        "--time-color=000000ff" \
+        "--date-color=000000ff" \
+        "--layout-color=00000000"
+    )
+fi
+
+# run this bad boy
+i3lock -i "$image" "${params[@]}" "${colors[@]}" "$@"

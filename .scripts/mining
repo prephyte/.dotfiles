@@ -2,11 +2,12 @@
 
 export SUDO_ASKPASS=/usr/bin/xaskpass
 
+notify() {
+    dunstify -a no-history "Mining" "$1"
+}
+
+
 case "$1" in
-    "f") 
-        glxgears -geometry 1x1+1+1 &> /dev/null & (sleep 0.05; pkill glxgears &> /dev/null)
-        echo "Your screen is fixed"
-    ;; 
     "r")
         if systemctl --user status nicehash | head -4 | grep running > /dev/null; then
             echo "Already running"
@@ -27,21 +28,21 @@ case "$1" in
     ;;
     "rg")
         if systemctl --user status nicehash | head -4 | grep running > /dev/null; then
-            echo "Already running"
+            notify "Already running"
             exit
         fi
         sudo -p 'Enter your password' -A /opt/t-rex/mining-clocks.sh > /dev/null && 
         systemctl start --user nicehash.service && 
-        echo "Running"
+        notify 'Started mining!'
     ;; 
     "sg")
         if systemctl --user status nicehash | head -4 | grep dead > /dev/null; then
-            echo "Already stopped"
+            notify "Already stopped"
             exit
         fi
         sudo -p 'Enter your password' -A /opt/t-rex/working-clocks.sh > /dev/null && 
         systemctl --user stop nicehash.service &> /dev/null &&
-        echo "Stopped"
+        notify 'Stopped mining!'
     ;;
     "*") 
         echo "Unknown command!"
