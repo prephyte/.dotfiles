@@ -1,2 +1,2 @@
 #!/bin/bash
-terminal -e spt
+terminal spt

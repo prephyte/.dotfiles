@@ -1,0 +1,32 @@
+#!/usr/bin/env python
+import requests
+from requests.exceptions import ConnectionError
+from bisect import bisect
+
+
+def format_number(num):
+    suffixes = {
+        1: 'H/s',
+        1e3: 'kH/s',
+        1e6: 'MH/s',
+    }
+    breakpoints = [*suffixes.keys()]
+    num_format = '{:.2f}{}'
+
+    if num in suffixes:
+       return num_format.format(1.0, suffixes[num])
+
+    breakpoint_idx = bisect(breakpoints, num)
+    breakpoint = breakpoints[breakpoint_idx - 1 if breakpoint_idx else 0]
+    suffix = suffixes[breakpoint]
+    return num_format.format(float(num) / breakpoint, suffix)
+
+def main():
+    try:
+        hashrate = requests.get("http://127.0.0.1:4067/summary").json()['hashrate']
+    except ConnectionError:
+        hashrate = 0
+    print(f" {format_number(hashrate)}")
+
+if __name__ == "__main__":
+    main()

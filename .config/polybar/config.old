@@ -84,3 +84,5 @@ screenchange-reload = true
 [global/wm]
 margin-top = 0
 margin-bottom = 30
+
+# vim: ft=config
