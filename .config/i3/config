@@ -213,7 +213,7 @@ bindsym $mod+q kill
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+s exec --no-startup-id flameshot gui
 
-bindsym $mod+0 exec --no-startup-id ~/.scripts/screen
+bindsym $mod+0 exec --no-startup-id ~/.scripts/sleep
 bindsym $mod+m exec --no-startup-id polybar-msg cmd toggle
 bindsym $mod+p exec --no-startup-id ~/.scripts/output
 bindsym $mod+bracketleft exec --no-startup-id ~/.scripts/mining sg
