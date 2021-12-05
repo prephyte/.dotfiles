@@ -208,10 +208,11 @@ for_window [class=".*"] title_format " <small>%title</small>"
 # Basic keybinds
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+period exec --no-startup-id rofi -show emoji
-bindsym $mod+Return exec --no-startup-id terminal
+bindsym $mod+Return exec --no-startup-id kitty
 bindsym $mod+q kill
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+s exec --no-startup-id flameshot gui
+bindsym Print exec --no-startup-id scrot '/home/prephyte/Media/Screenshots/%Y-%m-%d_$wx$h.png'
 
 bindsym $mod+0 exec --no-startup-id ~/.scripts/sleep
 bindsym $mod+m exec --no-startup-id polybar-msg cmd toggle
@@ -221,9 +222,9 @@ bindsym $mod+bracketright exec --no-startup-id ~/.scripts/mining rg
 
 bindsym $mod+w exec --no-startup-id chromium
 bindsym $mod+x exec --no-startup-id discord
-bindsym $mod+s exec --no-startup-id spotify
 bindsym $mod+t exec --no-startup-id telegram-desktop
-bindsym $mod+e exec --no-startup-id terminal ranger
+bindsym $mod+s exec --no-startup-id kitty spt
+bindsym $mod+e exec --no-startup-id kitty ranger
 
 bindsym $mod+o exec --no-startup-id dunstctl close
 bindsym $mod+Ctrl+i exec --no-startup-id dunstctl context
