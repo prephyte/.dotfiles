@@ -5,8 +5,8 @@ fixed-center = true
 enable-ipc = true
 bottom = false
 
-background = #1d1f21
-foreground = #c5c8c6
+background = #282c34
+foreground = #979eab
 
 padding-left = 0
 padding-right = 1
@@ -35,13 +35,13 @@ cursor-scroll = ns-resize
 type = custom/text
 content = "|"
 content-padding = 1
-content-foreground = #343638
+content-foreground = #5C6370
 
 # [module/tray-separator]
 # type = custom/text
 # content = " |"
 # content-padding = 0
-# content-foreground = #343638
+# content-foreground = #5C6370
 
 [module/i3]
 type = internal/i3
@@ -52,7 +52,7 @@ wrapping-scroll = false
 label-mode-padding = 0
 
 label-focused = %index%
-label-focused-underline = #343638
+label-focused-underline = #5C6370
 label-focused-padding = 1
 
 label-unfocused = %index%

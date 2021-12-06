@@ -6,19 +6,19 @@ focus_on_window_activation focus
 
 
 # Colors                border  bground text    indicator child_border
-client.focused          #343638 #343638 #c5c8c6 #343638   #343638
-client.focused_inactive #1d1f21 #1d1f21 #c5c8c6 #1d1f21   #1d1f21
-client.unfocused        #1d1f21 #1d1f21 #c5c8c6 #1d1f21   #1d1f21
-client.urgent           #1d1f21 #1d1f21 #c5c8c6 #1d1f21   #1d1f21
-client.placeholder      #1d1f21 #1d1f21 #c5c8c6 #1d1f21   #1d1f21
-client.background       #1d1f21
+client.focused          #3e4452 #3e4452 #979eab #3e4452   #3e4452
+client.focused_inactive #282c34 #282c34 #979eab #282c34   #282c34
+client.unfocused        #282c34 #282c34 #979eab #282c34   #282c34
+client.urgent           #282c34 #282c34 #979eab #282c34   #282c34
+client.placeholder      #282c34 #282c34 #979eab #282c34   #282c34
+client.background       #282c34
 
 
 # Border
-default_border pixel 1
+default_border pixel 2
 default_floating_border normal
 hide_edge_borders none
-bindsym $mod+y border pixel 1
+bindsym $mod+y border pixel 2
 bindsym $mod+Ctrl+y border normal
 
 
@@ -51,10 +51,6 @@ bindsym $mod+c split h
 bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Ctrl+f floating toggle
-
-# bindsym $ layout stacking
-# bindsym $ layout tabbed
-# bindsym $ layout toggle split
 
 
 # Workspaces

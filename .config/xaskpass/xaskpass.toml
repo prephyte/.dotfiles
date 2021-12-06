@@ -13,8 +13,8 @@ alignment = 'Left'
 scale = 'none'
 indicator_label = ''
 input_timeout = 30
-foreground = '#c5c8c6'
-background = '#1d1f21'
+foreground = '#979eab'
+background = '#282c34'
 
 [dialog.layout_opts]
 layout = 'Center'
@@ -24,7 +24,7 @@ text_width = 'none'
 
 [dialog.ok_button]
 label = 'OK'
-foreground = '#c5c8c6'
+foreground = '#979eab'
 horizontal_spacing = 'none'
 vertical_spacing = 'none'
 border_width = 1.0
@@ -32,18 +32,18 @@ radius_x = 3
 radius_y = 3
 pressed_adjustment_x = 0
 pressed_adjustment_y = 0
-background = '#343638'
-border_color = '#343638'
-border_color_pressed = '#1d1f21'
+background = '3e4452'
+border_color = '3e4452'
+border_color_pressed = '#282c34'
 background_stop = 'none'
-background_pressed = '#1d1f21'
+background_pressed = '#282c34'
 background_pressed_stop = 'none'
 background_hover_stop = 'none'
-background_hover = '#343638'
+background_hover = '3e4452'
 
 [dialog.cancel_button]
 label = 'Cancel'
-foreground = '#c5c8c6'
+foreground = '#979eab'
 horizontal_spacing = 'none'
 vertical_spacing = 'none'
 border_width = 1.0
@@ -51,17 +51,17 @@ radius_x = 3
 radius_y = 3
 pressed_adjustment_x = 0
 pressed_adjustment_y = 0
-background = '#343638'
-border_color = '#343638'
-border_color_pressed = '#1d1f21'
+background = '3e4452'
+border_color = '3e4452'
+border_color_pressed = '#282c34'
 background_stop = 'none'
-background_pressed = '#1d1f21'
+background_pressed = '#282c34'
 background_pressed_stop = 'none'
 background_hover_stop = 'none'
-background_hover = '#343638'
+background_hover = '3e4452'
 
 [dialog.clipboard_button]
-foreground = '#c5c8c6'
+foreground = '#979eab'
 horizontal_spacing = 'none'
 vertical_spacing = 'none'
 border_width = 1.0
@@ -69,21 +69,21 @@ radius_x = 3
 radius_y = 3
 pressed_adjustment_x = 0
 pressed_adjustment_y = 0
-background = '#343638'
-border_color = '#343638'
-border_color_pressed = '#1d1f21'
+background = '3e4452'
+border_color = '3e4452'
+border_color_pressed = '#282c34'
 background_stop = 'none'
-background_pressed = '#1d1f21'
+background_pressed = '#282c34'
 background_pressed_stop = 'none'
 background_hover_stop = 'none'
-background_hover = '#343638'
+background_hover = '3e4452'
 
 [dialog.indicator]
 border_width = 1.0
 blink = false
-background = '#343638'
+background = '3e4452'
 background_stop = 'none'
-border_color_focused = '#343638'
+border_color_focused = '3e4452'
 indicator_color = '#00ff00'
 indicator_color_stop = 'none'
 type = 'Circle'
@@ -97,4 +97,4 @@ light_up = false
 spacing_angle = 0.5
 indicator_count = 3
 indicator_width = 8
-lock_color = '#c5c8c6'
+lock_color = '#979eab'
