@@ -13,7 +13,7 @@ alignment = 'Left'
 scale = 'none'
 indicator_label = ''
 input_timeout = 30
-foreground = '#979eab'
+foreground = '#abb2bf'
 background = '#282c34'
 
 [dialog.layout_opts]
@@ -24,7 +24,7 @@ text_width = 'none'
 
 [dialog.ok_button]
 label = 'OK'
-foreground = '#979eab'
+foreground = '#abb2bf'
 horizontal_spacing = 'none'
 vertical_spacing = 'none'
 border_width = 1.0
@@ -43,7 +43,7 @@ background_hover = '3e4452'
 
 [dialog.cancel_button]
 label = 'Cancel'
-foreground = '#979eab'
+foreground = '#abb2bf'
 horizontal_spacing = 'none'
 vertical_spacing = 'none'
 border_width = 1.0
@@ -61,7 +61,7 @@ background_hover_stop = 'none'
 background_hover = '3e4452'
 
 [dialog.clipboard_button]
-foreground = '#979eab'
+foreground = '#abb2bf'
 horizontal_spacing = 'none'
 vertical_spacing = 'none'
 border_width = 1.0
@@ -97,4 +97,4 @@ light_up = false
 spacing_angle = 0.5
 indicator_count = 3
 indicator_width = 8
-lock_color = '#979eab'
+lock_color = '#abb2bf'

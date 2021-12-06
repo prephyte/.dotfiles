@@ -22,7 +22,7 @@ mkdir -p ~/.config/dunst \
     ~/.config/fontconfig/conf.d \
     ~/.config/i3 \
     ~/.config/kitty \
-    ~/.config/nvim/colors \
+    ~/.config/nvim \
     ~/.config/picom \
     ~/.config/polybar \
     ~/.config/rofi/themes \
@@ -40,8 +40,7 @@ ln -sf $DOTDIR/.config/kitty/* ~/.config/kitty/
 ln -sf $DOTDIR/.config/picom/* ~/.config/picom/
 ln -sf $DOTDIR/.config/polybar/* ~/.config/polybar/
 ln -sf $DOTDIR/.config/xaskpass/* ~/.config/xaskpass/
-ln -sf $DOTDIR/.config/nvim/init.vim ~/.config/nvim/
-ln -sf $DOTDIR/.config/nvim/colors/* ~/.config/nvim/colors/
+ln -sf $DOTDIR/.config/nvim/* ~/.config/nvim/
 ln -sf $DOTDIR/.config/rofi/config.rasi ~/.config/rofi
 ln -sf $DOTDIR/.config/rofi/themes/minimal.rasi ~/.config/rofi/themes/
 

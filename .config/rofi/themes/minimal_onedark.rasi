@@ -3,7 +3,7 @@
   bg: #282c34;
   bg-alt: #3e4452;
 
-  fg: #979eab;
+  fg: #abb2bf;
 
   background-color: @bg;
   
