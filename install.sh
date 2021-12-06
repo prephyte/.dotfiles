@@ -5,15 +5,16 @@ if [[ $(id -u) = 0 ]]; then
     exit 1
 fi
 
-pacman -Syyu
-pacman -S i3-gaps polybar dunst libnotify nitrogen kitty zsh adobe-source-code-pro-fonts jq pulseaudio-control bat rofi rofi-emoji noto-fonts-emoji
-
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+yay -Sy
+yay -S i3-gaps polybar dunst libnotify nitrogen kitty zsh adobe-source-code-pro-fonts jq pulseaudio-control bat rofi rofi-emoji noto-fonts-emoji
 
 mkdir -p backup/.config
 
 mv ~/.config/dunst ~/.config/fontconfig ~/.config/i3 ~/.config/kitty ~/.config/nvim ~/.config/picom ~/.config/polybar ~/.config/rofi ~/.config/xaskpass backup/.config
+mv ~/.oh-my-zsh backup/
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 mkdir -p ~/.config/dunst \
     ~/.config/fontconfig/conf.d \
@@ -34,10 +35,11 @@ ln -sf ./.config/dunst/dunstrc ~/.config/dunst/dunstrc
 ln -sf ./.config/fontconfig/conf.d/57-add-emoji-support.conf ~/.config/fontconfig/conf.d/57-add-emoji-support.conf
 ln -sf ./.config/i3/* ~/.config/i3/
 ln -sf ./.config/kitty/* ~/.config/kitty/
-ln -sf ./.config/nvim/* ~/.config/nvim/
 ln -sf ./.config/picom/* ~/.config/picom/
 ln -sf ./.config/polybar/* ~/.config/polybar/
 ln -sf ./.config/xaskpass/* ~/.config/xaskpass/
+ln -sf ./.config/nvim/init.vim ~/.config/nvim/
+ln -sf ./.config/nvim/colors/* ~/.config/nvim/colors/
 ln -sf ./.config/rofi/config.rasi ~/.config/rofi
 ln -sf ./.config/rofi/themes/minimal.rasi ~/.config/rofi/themes/
 
