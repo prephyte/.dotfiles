@@ -5,8 +5,10 @@ if [[ $(id -u) = 0 ]]; then
     exit 1
 fi
 
+DOTDIR=dirname $(readlink -f $0)
+
 yay -Sy
-yay -S i3-gaps polybar dunst libnotify nitrogen kitty zsh adobe-source-code-pro-fonts jq pulseaudio-control bat rofi rofi-emoji noto-fonts-emoji
+yay -S xorg-server lightdm lightdm-gtk-greeter neovim i3-gaps polybar dunst libnotify nitrogen kitty zsh adobe-source-code-pro-fonts jq pulseaudio-control bat rofi rofi-emoji noto-fonts-emoji
 
 mkdir -p backup/.config
 
@@ -30,20 +32,20 @@ mkdir -p ~/.config/dunst \
     ~/.scripts \
     ~/.wallpapers
 
-ln -sf ./.config/chromium-flags.conf ~/.config/chromium-flags.conf
-ln -sf ./.config/dunst/dunstrc ~/.config/dunst/dunstrc
-ln -sf ./.config/fontconfig/conf.d/57-add-emoji-support.conf ~/.config/fontconfig/conf.d/57-add-emoji-support.conf
-ln -sf ./.config/i3/* ~/.config/i3/
-ln -sf ./.config/kitty/* ~/.config/kitty/
-ln -sf ./.config/picom/* ~/.config/picom/
-ln -sf ./.config/polybar/* ~/.config/polybar/
-ln -sf ./.config/xaskpass/* ~/.config/xaskpass/
-ln -sf ./.config/nvim/init.vim ~/.config/nvim/
-ln -sf ./.config/nvim/colors/* ~/.config/nvim/colors/
-ln -sf ./.config/rofi/config.rasi ~/.config/rofi
-ln -sf ./.config/rofi/themes/minimal.rasi ~/.config/rofi/themes/
+ln -sf $DOTDIR/.config/chromium-flags.conf ~/.config/chromium-flags.conf
+ln -sf $DOTDIR/.config/dunst/dunstrc ~/.config/dunst/dunstrc
+ln -sf $DOTDIR/.config/fontconfig/conf.d/57-add-emoji-support.conf ~/.config/fontconfig/conf.d/57-add-emoji-support.conf
+ln -sf $DOTDIR/.config/i3/* ~/.config/i3/
+ln -sf $DOTDIR/.config/kitty/* ~/.config/kitty/
+ln -sf $DOTDIR/.config/picom/* ~/.config/picom/
+ln -sf $DOTDIR/.config/polybar/* ~/.config/polybar/
+ln -sf $DOTDIR/.config/xaskpass/* ~/.config/xaskpass/
+ln -sf $DOTDIR/.config/nvim/init.vim ~/.config/nvim/
+ln -sf $DOTDIR/.config/nvim/colors/* ~/.config/nvim/colors/
+ln -sf $DOTDIR/.config/rofi/config.rasi ~/.config/rofi
+ln -sf $DOTDIR/.config/rofi/themes/minimal.rasi ~/.config/rofi/themes/
 
-ln -sf ./.local/bin/* ~/.local/bin/
-ln -sf ./.local/share/fonts/otf/* ~/.local/share/fonts/otf/
+ln -sf $DOTDIR/.local/bin/* ~/.local/bin/
+ln -sf $DOTDIR/.local/share/fonts/otf/* ~/.local/share/fonts/otf/
 
-ln -sf ./.scripts/* ~/.scripts/
+ln -sf $DOTDIR/.scripts/* ~/.scripts/
