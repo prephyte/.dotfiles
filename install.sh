@@ -5,10 +5,10 @@ if [[ $(id -u) = 0 ]]; then
     exit 1
 fi
 
-DOTDIR=dirname $(readlink -f $0)
+DOTDIR=$(dirname $(readlink -f $0))
 
 yay -Sy
-yay -S xorg-server lightdm lightdm-gtk-greeter neovim i3-gaps polybar dunst libnotify nitrogen kitty zsh adobe-source-code-pro-fonts jq pulseaudio-control bat rofi rofi-emoji noto-fonts-emoji
+yay -S xorg-server lightdm lightdm-gtk-greeter xorg-xset neovim i3-gaps polybar dunst libnotify nitrogen kitty zsh adobe-source-code-pro-fonts jq pulseaudio-control bat rofi rofi-emoji noto-fonts-emoji
 
 mkdir -p backup/.config
 
@@ -49,3 +49,7 @@ ln -sf $DOTDIR/.local/bin/* ~/.local/bin/
 ln -sf $DOTDIR/.local/share/fonts/otf/* ~/.local/share/fonts/otf/
 
 ln -sf $DOTDIR/.scripts/* ~/.scripts/
+
+ln -sf $DOTDIR/.Xresources ~/
+ln -sf $DOTDIR/.zshrc ~/
+ln -sf $DOTDIR/.profile ~/
