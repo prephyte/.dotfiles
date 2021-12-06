@@ -2,6 +2,7 @@ set nocompatible
 
 call plug#begin()
     Plug 'sheerun/vim-polyglot'
+    Plug 'preservim/nerdtree'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'joshdick/onedark.vim'
     Plug 'itchyny/lightline.vim'

@@ -7,14 +7,26 @@ fi
 
 DOTDIR=$(dirname $(readlink -f $0))
 
-yay -Sy
-yay -S xorg-server lightdm lightdm-gtk-greeter xorg-xset neovim i3-gaps polybar dunst libnotify nitrogen kitty zsh adobe-source-code-pro-fonts jq pulseaudio-control bat rofi rofi-emoji noto-fonts-emoji
+# Install yay
+sudo pacman -S git base-devel
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ../
+rm -rf yay
 
+# Install required packages
+yay -Sy
+yay -S xorg-server sddm multicolor-sddm-theme xorg-xset neovim i3-gaps polybar dunst libnotify nitrogen kitty zsh adobe-source-code-pro-fonts jq pulseaudio-control bat rofi rofi-emoji noto-fonts-emoji --needed
+
+
+# Local config
 mkdir -p backup/.config
 
 mv ~/.config/dunst ~/.config/fontconfig ~/.config/i3 ~/.config/kitty ~/.config/nvim ~/.config/picom ~/.config/polybar ~/.config/rofi ~/.config/xaskpass backup/.config
 mv ~/.oh-my-zsh backup/
 
+# Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
@@ -52,3 +64,8 @@ ln -sf $DOTDIR/.scripts/* ~/.scripts/
 ln -sf $DOTDIR/.Xresources ~/
 ln -sf $DOTDIR/.zshrc ~/
 ln -sf $DOTDIR/.profile ~/
+
+# Global config
+sudo systemctl enable sddm
+echo -e "[Theme]\nCurrent=multicolor-sddm-theme" | sudo tee -a /etc/sddm.conf
+sudo systemctl start sddm # the last line to be executed
