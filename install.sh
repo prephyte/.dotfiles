@@ -11,16 +11,16 @@ DOTDIR=$(dirname $(readlink -f $0))
 cd $DOTDIR
 
 # Install yay
-sudo pacman -S git base-devel --noconfirm
+sudo pacman -S git base-devel --needed --noconfirm
 git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg -si --noconfirm
+makepkg -si --needed --noconfirm
 cd ../
 rm -rf yay &&
 
 # Install required packages
 yay -Sy --noconfirm
-yay -S xorg-server sddm multicolor-sddm-theme xorg-xset neovim i3-gaps polybar dunst libnotify nitrogen kitty zsh adobe-source-code-pro-fonts jq pulseaudio-control bat rofi rofi-emoji noto-fonts-emoji picom node --needed --noconfirm
+yay -S xorg-server sddm multicolor-sddm-theme xorg-xset neovim i3-gaps polybar dunst libnotify nitrogen kitty zsh adobe-source-code-pro-fonts jq pulseaudio-control bat rofi rofi-emoji noto-fonts-emoji picom nodejs --needed --noconfirm
 yay -R vim --noconfirm
 
 # Local config
