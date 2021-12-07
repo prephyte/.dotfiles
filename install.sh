@@ -17,7 +17,7 @@ rm -rf yay
 
 # Install required packages
 yay -Sy
-yay -S xorg-server sddm multicolor-sddm-theme xorg-xset neovim i3-gaps polybar dunst libnotify nitrogen kitty zsh adobe-source-code-pro-fonts jq pulseaudio-control bat rofi rofi-emoji noto-fonts-emoji --needed
+yay -S xorg-server sddm multicolor-sddm-theme xorg-xset neovim i3-gaps polybar dunst libnotify nitrogen kitty zsh adobe-source-code-pro-fonts jq pulseaudio-control bat rofi rofi-emoji noto-fonts-emoji picom --needed
 
 
 # Local config
@@ -30,6 +30,7 @@ mv ~/.oh-my-zsh backup/
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+# Link all config files
 mkdir -p ~/.config/dunst \
     ~/.config/fontconfig/conf.d \
     ~/.config/i3 \
@@ -60,10 +61,14 @@ ln -sf $DOTDIR/.local/bin/* ~/.local/bin/
 ln -sf $DOTDIR/.local/share/fonts/otf/* ~/.local/share/fonts/otf/
 
 ln -sf $DOTDIR/.scripts/* ~/.scripts/
+ln -sf $DOTDIR/.wallpapers/* ~/.wallpapers
 
 ln -sf $DOTDIR/.Xresources ~/
 ln -sf $DOTDIR/.zshrc ~/
 ln -sf $DOTDIR/.profile ~/
+
+# Set the wallpaper
+nitrogen --set-zoom-fill ~/.wallpapers/wallpaper.jpeg
 
 # Global config
 sudo systemctl enable sddm
