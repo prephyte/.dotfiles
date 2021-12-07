@@ -9,24 +9,20 @@ DOTDIR=$(dirname $(readlink -f $0))
 cd $DOTDIR
 
 # Install yay
-sudo pacman -S git base-devel && 
+sudo pacman -S git base-devel --noconfirm && 
 git clone https://aur.archlinux.org/yay.git && 
 cd yay && 
-makepkg -si && 
+makepkg -si --noconfirm && 
 cd ../ && 
 rm -rf yay &&
 
 # Install required packages
-yay -Sy && 
-yay -S xorg-server sddm multicolor-sddm-theme xorg-xset neovim i3-gaps polybar dunst libnotify nitrogen kitty zsh adobe-source-code-pro-fonts jq pulseaudio-control bat rofi rofi-emoji noto-fonts-emoji picom node --needed && 
-yay -R vim
-
+yay -Sy --noconfirm && 
+yay -S xorg-server sddm multicolor-sddm-theme xorg-xset neovim i3-gaps polybar dunst libnotify nitrogen kitty zsh adobe-source-code-pro-fonts jq pulseaudio-control bat rofi rofi-emoji noto-fonts-emoji picom node --needed --noconfirm && 
+yay -R vim --noconfirm && 
 
 # Local config
-mkdir -p backup/.config && 
-
-mv ~/.config/dunst ~/.config/fontconfig ~/.config/i3 ~/.config/kitty ~/.config/nvim ~/.config/picom ~/.config/polybar ~/.config/rofi ~/.config/xaskpass backup/.config
-mv ~/.oh-my-zsh backup/
+rm -rf ~/.config/dunst ~/.config/fontconfig ~/.config/i3 ~/.config/kitty ~/.config/nvim ~/.config/picom ~/.config/polybar ~/.config/rofi ~/.config/xaskpass ~/.oh-my-zsh && 
 
 # Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && 
@@ -83,6 +79,6 @@ sudo ln -s /usr/bin/nvim /usr/bin/vi &&
 clear
 echo "Installation is finished!"
 echo "You will have to run !PlugInstall in vim to install all plugins"
-read -p "Press enter to start i3..."
+read -p "Press enter to start i3..." && 
 
 sudo systemctl start sddm # the last line to be executed
