@@ -18,6 +18,7 @@ rm -rf yay
 # Install required packages
 yay -Sy
 yay -S xorg-server sddm multicolor-sddm-theme xorg-xset neovim i3-gaps polybar dunst libnotify nitrogen kitty zsh adobe-source-code-pro-fonts jq pulseaudio-control bat rofi rofi-emoji noto-fonts-emoji picom --needed
+yay -R vim
 
 
 # Local config
@@ -73,4 +74,6 @@ nitrogen --set-zoom-fill ~/.wallpapers/wallpaper.jpeg
 # Global config
 sudo systemctl enable sddm
 echo -e "[Theme]\nCurrent=multicolor-sddm-theme" | sudo tee -a /etc/sddm.conf
+sudo ln -s /usr/bin/nvim /usr/bin/vim
+sudo ln -s /usr/bin/nvim /usr/bin/vi
 sudo systemctl start sddm # the last line to be executed
