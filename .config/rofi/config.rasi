@@ -7,4 +7,4 @@ configuration {
     modi: "window,run,drun,emoji";
     show-icons: false;
 }
-@theme "minimal"
+@theme "minimal_onedark"
