@@ -1,3 +1,2 @@
 #!/bin/bash
-
-sudo -p 'Enter your password' -A virsh start win10-gpu
+ssh host "( qm shutdown 100 && qm start 101 )&" 2> /dev/null &

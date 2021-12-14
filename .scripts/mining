@@ -13,7 +13,7 @@ case "$1" in
             echo "Already running"
             exit
         fi
-        sudo /opt/t-rex/mining-clocks.sh > /dev/null && 
+        sudo systemctl start nicehash && 
         systemctl start --user nicehash.service && 
         echo "Running"
     ;; 
@@ -22,7 +22,7 @@ case "$1" in
             echo "Already stopped"
             exit
         fi
-        sudo /opt/t-rex/working-clocks.sh > /dev/null && 
+        sudo systemctl stop nicehash > /dev/null && 
         systemctl --user stop nicehash.service &> /dev/null &&
         echo "Stopped"
     ;;
@@ -31,7 +31,7 @@ case "$1" in
             notify "Already running"
             exit
         fi
-        sudo -p 'Enter your password' -A /opt/t-rex/mining-clocks.sh > /dev/null && 
+        sudo -p 'Enter your password' -A systemctl start nicehash > /dev/null && 
         systemctl start --user nicehash.service && 
         notify 'Started mining!'
     ;; 
@@ -40,7 +40,7 @@ case "$1" in
             notify "Already stopped"
             exit
         fi
-        sudo -p 'Enter your password' -A /opt/t-rex/working-clocks.sh > /dev/null && 
+        sudo -p 'Enter your password' -A systemctl stop nicehash > /dev/null && 
         systemctl --user stop nicehash.service &> /dev/null &&
         notify 'Stopped mining!'
     ;;

@@ -20,7 +20,7 @@ rm -rf yay &&
 
 # Install required packages
 yay -Sy --noconfirm
-yay -S xorg-server sddm multicolor-sddm-theme xorg-xset neovim i3-gaps polybar dunst libnotify nitrogen kitty zsh adobe-source-code-pro-fonts jq pulseaudio-control bat rofi rofi-emoji noto-fonts-emoji picom nodejs --needed --noconfirm
+yay -S xorg-server sddm multicolor-sddm-theme xorg-xset neovim i3-gaps polybar dunst libnotify nitrogen kitty zsh adobe-source-code-pro-fonts jq pulseaudio-control bat rofi rofi-emoji noto-fonts-emoji picom nodejs npm --needed --noconfirm
 yay -R vim --noconfirm
 
 # Local config
@@ -46,7 +46,7 @@ mkdir -p ~/.config/dunst \
     ~/.config/xaskpass \
     ~/.local/bin \
     ~/.local/share/fonts/otf \
-    ~/.scripts \
+    ~/.scripts/nicehash \
     ~/.wallpapers
 
 ln -sf $DOTDIR/.config/chromium-flags.conf ~/.config/chromium-flags.conf

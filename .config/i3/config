@@ -65,6 +65,7 @@ bindsym $mod+c split h
 bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Ctrl+f floating toggle
+bindsym $mod+Shift+f focus mode_toggle
 
 
 # Workspaces
@@ -107,6 +108,10 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+
+bindsym $mod+n scratchpad show
+bindsym $mod+Shift+n scratchpad show, floating disable
+bindsym $mod+Ctrl+n move scratchpad
 
 
 # Resize mode
@@ -224,7 +229,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+s exec --no-startup-id flameshot gui
 bindsym Print exec --no-startup-id scrot '/home/prephyte/Media/Screenshots/%Y-%m-%d_$wx$h.png'
 
-bindsym $mod+0 exec --no-startup-id ~/.scripts/sleep
+bindsym $mod+0 exec ~/.scripts/sleep
 bindsym $mod+m exec --no-startup-id polybar-msg cmd toggle
 bindsym $mod+p exec --no-startup-id ~/.scripts/output
 bindsym $mod+bracketleft exec --no-startup-id ~/.scripts/mining sg
@@ -233,8 +238,8 @@ bindsym $mod+bracketright exec --no-startup-id ~/.scripts/mining rg
 bindsym $mod+w exec --no-startup-id chromium
 bindsym $mod+x exec --no-startup-id discord
 bindsym $mod+t exec --no-startup-id telegram-desktop
-bindsym $mod+s exec --no-startup-id kitty spt
 bindsym $mod+e exec --no-startup-id kitty ranger
+bindsym $mod+s exec --no-startup-id kitty spt
 
 bindsym $mod+o exec --no-startup-id dunstctl close
 bindsym $mod+Ctrl+i exec --no-startup-id dunstctl context

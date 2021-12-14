@@ -2,6 +2,3 @@
 
 bluetoothctl power on
 notify-send "Headphones" "$(bluetoothctl connect 20:1B:88:A6:0A:BD)"
-sleep 1
-pactl set-default-sink bluez_sink.20_1B_88_A6_0A_BD.a2dp_sink
-pacmd update-sink-proplist bluez_sink.20_1B_88_A6_0A_BD.a2dp_sink device.description="Bluetooth"
