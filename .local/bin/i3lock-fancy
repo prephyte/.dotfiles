@@ -10,7 +10,6 @@ scrot "$image" -z -o
 convert "$image" -scale 20% -blur 0x2.5 -resize 500% -level "0%,100%,0.9" -filter Gaussian -resize 20% -define "filter:sigma=1.5" -resize 500.5% "$image"
 
 params=(
-    "-k" \
     "--no-modkey-text" \
     # "--no-verify"
 )

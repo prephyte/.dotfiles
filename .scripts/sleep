@@ -7,6 +7,7 @@ revert() {
     xset -dpms
     pacmd update-sink-proplist alsa_output.pci-0000_06_00.1.hdmi-stereo device.description="TV"
     pacmd update-sink-proplist alsa_output.pci-0000_06_00.1.hdmi-stereo-extra1 device.description="Monitor"
+    sleep 0.3
     i3-msg restart
 }
 
@@ -26,5 +27,6 @@ fast_sleep() {
 trap revert HUP INT TERM
 xset +dpms dpms $timeout $timeout $timeout
 fast_sleep
+# i3lock-fancy -n -e -k
 i3lock-fancy -n -e
 revert
