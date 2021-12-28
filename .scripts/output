@@ -25,3 +25,5 @@ fi
 
 i3-msg restart
 systemctl --user restart dunst
+sleep 7
+nitrogen --set-zoom-fill ~/.wallpapers/wallpaper.jpeg 
