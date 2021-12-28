@@ -4,6 +4,6 @@
     -p x \
     -i 15 \
     --api-bind-http "0.0.0.0:4067" \
-    --temperature-limit "60" \
+    --temperature-limit "59" \
     --temperature-start "55" \
     > /dev/null

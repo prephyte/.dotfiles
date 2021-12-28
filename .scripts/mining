@@ -26,24 +26,28 @@ case "$1" in
         systemctl --user stop nicehash.service &> /dev/null &&
         echo "Stopped"
     ;;
+#     "rg")
+#         if systemctl --user status nicehash | head -4 | grep running > /dev/null; then
+#             notify "Already running"
+#             exit
+#         fi
+#         sudo -p 'Enter your password' -A systemctl start nicehash > /dev/null && 
+#         systemctl start --user nicehash.service && 
+#         notify 'Started mining!'
+#     ;; 
+#     "sg")
+#         if systemctl --user status nicehash | head -4 | grep dead > /dev/null; then
+#             notify "Already stopped"
+#             exit
+#         fi
+#         sudo -p 'Enter your password' -A systemctl stop nicehash > /dev/null && 
+#         systemctl --user stop nicehash.service &> /dev/null &&
+#         notify 'Stopped mining!'
+#     ;;
     "rg")
-        if systemctl --user status nicehash | head -4 | grep running > /dev/null; then
-            notify "Already running"
-            exit
-        fi
-        sudo -p 'Enter your password' -A systemctl start nicehash > /dev/null && 
-        systemctl start --user nicehash.service && 
-        notify 'Started mining!'
-    ;; 
+        kitty ~/.scripts/mining r;;
     "sg")
-        if systemctl --user status nicehash | head -4 | grep dead > /dev/null; then
-            notify "Already stopped"
-            exit
-        fi
-        sudo -p 'Enter your password' -A systemctl stop nicehash > /dev/null && 
-        systemctl --user stop nicehash.service &> /dev/null &&
-        notify 'Stopped mining!'
-    ;;
+        kitty ~/.scripts/mining s;;
     "*") 
         echo "Unknown command!"
         echo "Usage: mining (f)ix / (r)un / (s)top"
