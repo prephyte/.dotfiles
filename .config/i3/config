@@ -1,14 +1,14 @@
 # Autostart apps
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
-exec --no-startup-id nitrogen --set-zoom-fill ~/.wallpapers/wallpaper.jpeg 
 exec --no-startup-id picom -b --config ~/.config/picom/picom.conf
 exec --no-startup-id clipit -n -d
-exec --no-startup-id setxkbmap -model pc105 -layout us,ru -option grp:win_space_toggle 
-exec --no-startup-id numlockx on
-exec --no-startup-id xset r rate 400 40
-exec --no-startup-id xset s 0 0
-exec --no-startup-id xset dpms 0 0 0
-exec --no-startup-id xset -dpms
+exec_always --no-startup-id setxkbmap -model pc105 -layout us,ru -option grp:win_space_toggle 
+exec_always --no-startup-id numlockx on
+exec_always --no-startup-id xset r rate 400 40
+exec_always --no-startup-id xset s 0 0
+exec_always --no-startup-id xset dpms 0 0 0
+exec_always --no-startup-id xset -dpms
+exec_always --no-startup-id nitrogen --set-zoom-fill ~/.wallpapers/wallpaper.jpeg 
 exec_always --no-startup-id ~/.config/polybar/launch.sh 
 exec_always --no-startup-id xsettingsd
 
