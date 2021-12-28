@@ -1,0 +1,8 @@
+#!/bin/bash                                                 
+OLDDPI=$(xrdb -query | awk '/Xft.dpi/ {print $2}')
+if (( OLDDPI != 192 )); then
+    echo "Xft.dpi: 120" | xrdb -merge
+    /usr/bin/telegram-desktop & disown
+    sleep 0.1
+    echo "Xft.dpi: $OLDDPI" | xrdb -merge
+fi
