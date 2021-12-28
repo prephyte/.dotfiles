@@ -5,4 +5,6 @@ if (( OLDDPI != 192 )); then
     /usr/bin/telegram-desktop & disown
     sleep 0.1
     echo "Xft.dpi: $OLDDPI" | xrdb -merge
+else
+    exec /usr/bin/telegram-desktop
 fi
