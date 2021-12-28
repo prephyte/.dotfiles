@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export SUDO_ASKPASS=/usr/bin/xaskpass
+# export SUDO_ASKPASS=/usr/bin/xaskpass
 
 notify() {
     dunstify -a no-history "Mining" "$1"
@@ -16,7 +16,7 @@ case "$1" in
         sudo systemctl start nicehash && 
         systemctl start --user nicehash.service && 
         echo "Running"
-    ;; 
+        ;; 
     "s")
         if systemctl --user status nicehash | head -4 | grep dead > /dev/null; then
             echo "Already stopped"
@@ -25,33 +25,31 @@ case "$1" in
         sudo systemctl stop nicehash > /dev/null && 
         systemctl --user stop nicehash.service &> /dev/null &&
         echo "Stopped"
-    ;;
-#     "rg")
-#         if systemctl --user status nicehash | head -4 | grep running > /dev/null; then
-#             notify "Already running"
-#             exit
-#         fi
-#         sudo -p 'Enter your password' -A systemctl start nicehash > /dev/null && 
-#         systemctl start --user nicehash.service && 
-#         notify 'Started mining!'
-#     ;; 
-#     "sg")
-#         if systemctl --user status nicehash | head -4 | grep dead > /dev/null; then
-#             notify "Already stopped"
-#             exit
-#         fi
-#         sudo -p 'Enter your password' -A systemctl stop nicehash > /dev/null && 
-#         systemctl --user stop nicehash.service &> /dev/null &&
-#         notify 'Stopped mining!'
-#     ;;
-    "rg")
-        kitty ~/.scripts/mining r;;
+        ;;
+     "rg")
+        if systemctl --user status nicehash | head -4 | grep running > /dev/null; then
+            notify "Already running"
+            exit
+        fi
+        kitty ~/.scripts/mining r
+#        sudo -p 'Enter your password' -A systemctl start nicehash > /dev/null && 
+#        systemctl start --user nicehash.service && 
+#        notify 'Started mining!'
+        ;; 
     "sg")
-        kitty ~/.scripts/mining s;;
+        if systemctl --user status nicehash | head -4 | grep dead > /dev/null; then
+            notify "Already stopped"
+            exit
+        fi
+        kitty ~/.scripts/mining s
+#        sudo -p 'Enter your password' -A systemctl stop nicehash > /dev/null && 
+#        systemctl --user stop nicehash.service &> /dev/null &&
+#        notify 'Stopped mining!'
+       ;;
     "*") 
         echo "Unknown command!"
         echo "Usage: mining (f)ix / (r)un / (s)top"
-    ;; 
+        ;; 
     "") 
         systemctl --user status nicehash.service
     ;;
