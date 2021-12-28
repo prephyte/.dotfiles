@@ -2,3 +2,5 @@
 
 bluetoothctl power on
 notify-send "Headphones" "$(bluetoothctl connect 20:1B:88:A6:0A:BD)"
+sleep 0.5
+pactl set-default-sink bluez_output.20_1B_88_A6_0A_BD.a2dp-sink
