@@ -1,8 +1,17 @@
 #!/bin/zsh
 
 declare -i timeout=30
+HASS_KEY=$(cat ~/.secrets/HASS_KEY.secret)
+
+update_state() {
+  curl -X POST -H "Authorization: Bearer ${HASS_KEY}" \
+  -H "Content-Type: application/json" \
+  -d "{\"state\": \"$1\"}" \
+  https://homeassistant.prephyte.ru/api/states/binary_sensor.pc
+}
 
 revert() {
+    update_state on
     xset dpms 0 0 0
     xset -dpms
     sleep 0.6
@@ -10,6 +19,7 @@ revert() {
 }
 
 fast_sleep() {
+    update_state off
     xset dpms force off
     sleep 1
     for _ in {1..$(( ($timeout - 1) * 5 ))}; do
