@@ -1,4 +1,4 @@
 #!/bin/bash
 pkill polybar
-polybar mybar 2>&1 | tee -a /tmp/polybar.log & disown
+polybar mybar 2>&1
 echo "Polybar launched..."
