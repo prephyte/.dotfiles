@@ -1,10 +1,17 @@
-#!/bin/bash                                                 
-OLDDPI=$(xrdb -query | awk '/Xft.dpi/ {print $2}')
-if (( OLDDPI != 192 )); then
-    echo "Xft.dpi: 120" | xrdb -merge
+#!/bin/bash
+OLDDPI=$(cat ~/.xsettingsd | awk '/Xft\/DPI/ {print $2}')
+
+update() {
+    sed -i -E "s/Xft\/DPI .*?/Xft\/DPI $1/g" ~/.xsettingsd
+    killall -HUP xsettingsd
+    xsettingsd & disown
+}
+
+if (( OLDDPI == 110592 )); then
+    update 122880
     /usr/bin/telegram-desktop & disown
-    sleep 0.1
-    echo "Xft.dpi: $OLDDPI" | xrdb -merge
+    sleep 0.5
+    update "$OLDDPI"
 else
     exec /usr/bin/telegram-desktop
 fi
