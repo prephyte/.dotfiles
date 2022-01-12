@@ -1,2 +1,2 @@
 #!/bin/bash
-ssh host "( qm shutdown 100 && qm start 101 )&" 2> /dev/null &
+virsh start win10-gpu

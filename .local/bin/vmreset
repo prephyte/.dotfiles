@@ -1,2 +1,0 @@
-#!/bin/bash
-ssh host "( qm stop 100 && qm start 100 )&" 2> /dev/null &
