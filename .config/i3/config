@@ -217,6 +217,8 @@ for_window [class="Xfburn"] floating enable
 for_window [title="glxgears"] floating enable border none
 for_window [title="Upload to Imgur"] floating enable border none
 for_window [class="SshAskpass"] floating enable border none
+for_window [class="helvum"] floating enable
+for_window [title="Discord Popout"] floating enable sticky enable border none
 for_window [class=".*"] title_format " <small>%title</small>"
 
 
@@ -225,6 +227,7 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+period exec --no-startup-id rofi -show emoji
 bindsym $mod+Return exec --no-startup-id kitty
 bindsym $mod+q kill
+bindsym $mod+Shift+q xkill
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+s exec --no-startup-id flameshot gui
 bindsym Print exec --no-startup-id scrot '/home/prephyte/Media/Screenshots/%Y-%m-%d_$wx$h.png'
@@ -238,7 +241,7 @@ bindsym $mod+bracketright exec --no-startup-id ~/.scripts/mining rg
 bindsym $mod+w exec --no-startup-id chromium
 bindsym $mod+x exec --no-startup-id discord
 bindsym $mod+t exec --no-startup-id telegram-desktop
-bindsym $mod+e exec --no-startup-id kitty ranger
+bindsym $mod+e exec --no-startup-id helvum
 bindsym $mod+s exec --no-startup-id kitty spt
 
 bindsym $mod+o exec --no-startup-id dunstctl close
