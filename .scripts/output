@@ -17,7 +17,7 @@ if nvidia-settings -q CurrentMetaMode | grep DPY-3 > /dev/null; then
     pactl set-default-sink alsa_output.pci-0000_01_00.1.hdmi-stereo
 else
     nvidia-settings --assign CurrentMetaMode="DP-2: 2560x1440_120 +0+0 {ForceFullCompositionPipeline=On}" > /dev/null
-    update_dpi 108 16 30 10
+    update_dpi 120 16 30 10
 
     sleep 1
     pactl set-default-sink alsa_output.usb-Burr-Brown_from_TI_USB_Audio_CODEC-00.analog-stereo-output

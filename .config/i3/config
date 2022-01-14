@@ -29,10 +29,10 @@ client.background       #282c34
 
 
 # Border
-default_border pixel 2
+default_border pixel 1
 default_floating_border normal
 hide_edge_borders none
-bindsym $mod+y border pixel 2
+bindsym $mod+y border pixel 1
 bindsym $mod+Ctrl+y border normal
 
 
@@ -139,8 +139,8 @@ mode "resize" {
 
 
 # Gaps
-gaps inner 14
-gaps outer -2
+gaps inner 12
+gaps outer 0
 smart_gaps on
 smart_borders on
 
