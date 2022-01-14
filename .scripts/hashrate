@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from pathlib import Path
 import requests
 from requests.exceptions import ConnectionError
 from bisect import bisect
@@ -11,22 +12,35 @@ def format_number(num):
         1e6: 'MH/s',
     }
     breakpoints = [*suffixes.keys()]
-    num_format = '{:.2f}{}'
+    num_format = '{:.2f} {}'
 
     if num in suffixes:
-       return num_format.format(1.0, suffixes[num])
+        return num_format.format(1.0, suffixes[num])
 
     breakpoint_idx = bisect(breakpoints, num)
     breakpoint = breakpoints[breakpoint_idx - 1 if breakpoint_idx else 0]
     suffix = suffixes[breakpoint]
     return num_format.format(float(num) / breakpoint, suffix)
 
+
+def get_sid():
+    filepath = Path.home() / Path('.secrets/password.secret')
+    with open(filepath, 'r') as pass_file:
+        password = pass_file.read().strip()
+    r = requests.get(f'http://127.0.0.1:4067/login?password={password}')
+    return r.json()['sid']
+
+
 def main():
     try:
-        hashrate = requests.get("http://127.0.0.1:4067/summary").json()['hashrate']
+        sid = get_sid()
+        r = requests.get("http://127.0.0.1:4067/summary", {'sid': sid})
+        hashrate = r.json()['hashrate']
     except ConnectionError:
         hashrate = 0
+
     print(f" {format_number(hashrate)}")
+
 
 if __name__ == "__main__":
     main()
