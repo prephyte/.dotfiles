@@ -1,6 +1,6 @@
 #!/bin/bash
 
-update_dpi() {
+update_dpi() { # args: DPI, cursor size, polybar size, rofi font size
     echo "Xft.dpi: $1" | xrdb -merge
     echo "Xft/DPI $(expr $1 \* 1024)" > ~/.xsettingsd
     echo "Gtk/CursorThemeSize $2" >> ~/.xsettingsd
@@ -11,10 +11,11 @@ update_dpi() {
 
 if nvidia-settings -q CurrentMetaMode | grep DPY-3 > /dev/null; then
     nvidia-settings --assign CurrentMetaMode="HDMI-0: 3840x2160_60+0+0 {ForceFullCompositionPipeline=On}" > /dev/null
-    update_dpi 192 32 50 18
+    update_dpi 264 48 60 28
+    # update_dpi 264 48 70 28
 
     sleep 1
-    pactl set-default-sink alsa_output.pci-0000_01_00.1.hdmi-stereo
+    pactl set-default-sink alsa_output.pci-0000_06_00.1.hdmi-stereo
 else
     nvidia-settings --assign CurrentMetaMode="DP-2: 2560x1440_120 +0+0 {ForceFullCompositionPipeline=On}" > /dev/null
     update_dpi 120 16 30 10
