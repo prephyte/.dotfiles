@@ -6,3 +6,4 @@ plugins=(git zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 alias venv="source .venv/bin/activate"
 alias svim="sudoedit"
+alias cal="cal -m"
