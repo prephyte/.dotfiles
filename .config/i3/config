@@ -214,7 +214,6 @@ for_window [class="(?i)System-config-printer.py"] floating enable border normal
 for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="Xfburn"] floating enable
-for_window [title="glxgears"] floating enable border none
 for_window [title="Upload to Imgur"] floating enable border none
 for_window [class="SshAskpass"] floating enable border none
 for_window [class="helvum"] floating enable
@@ -223,14 +222,14 @@ for_window [class=".*"] title_format " <small>%title</small>"
 
 
 # Basic keybinds
+bindsym $mod+q kill
+bindsym $mod+Shift+r restart
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+period exec --no-startup-id rofi -show emoji
 bindsym $mod+Return exec --no-startup-id kitty
-bindsym $mod+q kill
-bindsym $mod+Shift+q xkill
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+q exec --no-startup-id xkill
 bindsym $mod+Shift+s exec --no-startup-id flameshot gui
-bindsym Print exec --no-startup-id scrot '/home/prephyte/Media/Screenshots/%Y-%m-%d_$wx$h.png'
+bindsym Print exec --no-startup-id "scrot '/home/prephyte/Screenshots/%Y-%m-%d_%H%M%S.png'"
 
 bindsym $mod+0 exec ~/.scripts/sleep
 bindsym $mod+m exec --no-startup-id polybar-msg cmd toggle
